@@ -33,6 +33,8 @@
 #include "ReynoldsShearMoment.h"
 #include "CompressibleIsothermalShearFlow.h"
 #include "CompressibleIsothermalPressureFlow.h"
+#include "CompressibleIsothermalShearFlowDG.h"
+#include "CompressibleIsothermalPressureFlowDG.h"
 
 template<>
 InputParameters validParams<SlugApp>()
@@ -87,6 +89,8 @@ SlugApp::registerObjects(Factory & factory)
   registerPostprocessor(PressureMomentPointDirection);
   registerAux(ReynoldsShearStress);
   registerPostprocessor(ReynoldsShearMoment);
+  registerDGKernel(CompressibleIsothermalShearFlowDG);
+  registerDGKernel(CompressibleIsothermalPressureFlowDG);
 }
 
 // External entry point for dynamic syntax association
